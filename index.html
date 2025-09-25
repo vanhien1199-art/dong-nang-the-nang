@@ -1,592 +1,222 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Học liệu: Động năng – Thế năng</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        /* --- CÀI ĐẶT CHUNG --- */
-        :root {
-            --primary-color: #0077cc; /* Màu xanh dương chủ đạo */
-            --secondary-color: #f0f8ff; /* Màu nền phụ */
-            --text-color: #333;
-            --correct-color: #28a745;
-            --incorrect-color: #dc3545;
-            --border-radius: 12px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài học: Động năng – Thế năng</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: #f4faff;
+      color: #333;
+      padding: 10px;
+    }
 
-        body {
-            font-family: 'Quicksand', sans-serif;
-            background-color: #f4f7fa;
-            color: var(--text-color);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+    header {
+      background: #0077cc;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      border-radius: 10px;
+    }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+    header h1 {
+      font-size: 1.6rem;
+    }
 
-        /* --- THANH MENU --- */
-        nav {
-            background-color: white;
-            padding: 10px 20px;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            position: sticky;
-            top: 10px;
-            z-index: 1000;
-        }
+    section {
+      margin: 15px 0;
+      padding: 15px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
 
-        .nav-link {
-            padding: 10px 20px;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 8px;
-            transition: background-color 0.3s, color 0.3s;
-        }
+    h2 {
+      color: #0077cc;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
 
-        .nav-link:hover, .nav-link.active {
-            background-color: var(--primary-color);
-            color: white;
-        }
+    p {
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
 
-        /* --- NỘI DUNG CÁC PHẦN --- */
-        main section {
-            display: none; /* Ẩn tất cả các phần ban đầu */
-            background-color: white;
-            padding: 30px;
-            margin-top: 20px;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            animation: fadeIn 0.5s ease-in-out;
-        }
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
 
-        main section.active {
-            display: block; /* Hiện phần được chọn */
-        }
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        h1, h2, h3 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
+    .card {
+      background: #e9f4ff;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
 
-        h1 { font-size: 2.2em; text-align: center; }
-        h2 { font-size: 1.8em; border-bottom: 2px solid var(--secondary-color); padding-bottom: 10px;}
-        h3 { font-size: 1.4em; }
+    .quiz-container {
+      margin-top: 15px;
+    }
 
-        p { margin-bottom: 15px; }
-        
-        .formula {
-            background-color: var(--secondary-color);
-            padding: 15px;
-            border-left: 5px solid var(--primary-color);
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 1.2em;
-            margin: 20px 0;
-            text-align: center;
-        }
-        
-        .example-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
+    .quiz-question {
+      margin-bottom: 10px;
+    }
 
-        .example-card {
-            border: 1px solid #ddd;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .example-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-        }
+    .quiz-options button {
+      display: block;
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0;
+      border: none;
+      border-radius: 6px;
+      background: #0077cc;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-        .example-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
+    .quiz-options button:hover {
+      background: #005fa3;
+    }
 
-        .example-card .caption {
-            font-weight: bold;
-            padding: 15px;
-        }
+    #result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
 
-        .explanation {
-            display: none;
-            padding: 15px;
-            background-color: var(--secondary-color);
-            border-top: 1px solid #ddd;
-        }
-
-        /* --- CÂU HỎI TƯƠNG TÁC TRONG BÀI --- */
-        .interactive-question {
-            background-color: #f9f9f9;
-            border: 1px solid #eee;
-            padding: 20px;
-            border-radius: var(--border-radius);
-            margin-top: 30px;
-        }
-
-        .interactive-question p { font-weight: bold; }
-        
-        .interactive-options button {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            margin-top: 10px;
-            border: 1px solid #ccc;
-            background-color: white;
-            border-radius: 8px;
-            text-align: left;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .interactive-options button:hover:not(:disabled) {
-            background-color: var(--secondary-color);
-        }
-        .interactive-options button:disabled {
-            cursor: not-allowed;
-        }
-        .feedback {
-            margin-top: 10px;
-            font-weight: bold;
-            padding: 10px;
-            border-radius: 8px;
-            display: none;
-        }
-
-        /* --- TRÒ CHƠI KÉO THẢ --- */
-        #game-container {
-            display: flex;
-            justify-content: space-around;
-            gap: 20px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .drop-zone {
-            width: 45%;
-            min-height: 200px;
-            padding: 15px;
-            border: 2px dashed #ccc;
-            border-radius: var(--border-radius);
-            background-color: #fafafa;
-            transition: background-color 0.3s, border-color 0.3s;
-        }
-        
-        .drop-zone.drag-over {
-            background-color: var(--secondary-color);
-            border-color: var(--primary-color);
-        }
-
-        #draggable-items {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 30px 0;
-            padding: 15px;
-            background-color: var(--secondary-color);
-            border-radius: var(--border-radius);
-        }
-
-        .draggable {
-            padding: 12px 20px;
-            background-color: white;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            cursor: grab;
-            user-select: none;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .draggable:active {
-            cursor: grabbing;
-        }
-        .draggable.dropped {
-            background-color: #e9ecef;
-            cursor: not-allowed;
-            opacity: 0.7;
-        }
-
-        /* --- TRẮC NGHIỆM CUỐI BÀI --- */
-        .quiz-question {
-            margin-bottom: 25px;
-        }
-        .quiz-question p { font-weight: bold; }
-        .quiz-option {
-            margin: 5px 0;
-        }
-        #submit-quiz {
-            padding: 12px 25px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        #submit-quiz:hover {
-            background-color: #005fa3;
-        }
-        #quiz-results {
-            margin-top: 20px;
-            font-size: 1.2em;
-            font-weight: bold;
-            text-align: center;
-        }
-    </style>
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.2rem;
+      }
+      h2 {
+        font-size: 1rem;
+      }
+      p, button {
+        font-size: 0.9rem;
+      }
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Bài học: Động năng – Thế năng (Vật lý 8)</h1>
+  </header>
 
-    <div class="container">
-        <!-- THANH MENU ĐIỀU HƯỚNG -->
-        <nav>
-            <a href="#" class="nav-link active" data-target="gioi-thieu">Giới thiệu</a>
-            <a href="#" class="nav-link" data-target="dong-nang">Động năng</a>
-            <a href="#" class="nav-link" data-target="the-nang">Thế năng</a>
-            <a href="#" class="nav-link" data-target="tro-choi">Trò chơi</a>
-            <a href="#" class="nav-link" data-target="trac-nghiem">Trắc nghiệm</a>
-        </nav>
+  <section>
+    <h2>Mục tiêu bài học</h2>
+    <p>✔ Hiểu khái niệm động năng và thế năng.</p>
+    <p>✔ Biết công thức tính động năng.</p>
+    <p>✔ Phân biệt được động năng và thế năng qua ví dụ thực tế.</p>
+  </section>
 
-        <main>
-            <!-- PHẦN 1: GIỚI THIỆU -->
-            <section id="gioi-thieu" class="active">
-                <h1>Chào mừng đến với bài học Năng lượng Cơ học</h1>
-                <p>Khi một vật có khả năng thực hiện công, ta nói vật đó có năng lượng. Dạng năng lượng liên quan đến sự chuyển động và vị trí của vật được gọi là <strong>cơ năng</strong>.</p>
-                <p>Trong bài học này, chúng ta sẽ khám phá hai dạng chính của cơ năng:</p>
-                <ul>
-                    <li><strong>Động năng:</strong> Năng lượng do chuyển động mà có.</li>
-                    <li><strong>Thế năng:</strong> Năng lượng do vị trí mà có.</li>
-                </ul>
-                <img src="https://placehold.co/900x300/0077cc/FFFFFF?text=Động+năng+và+Thế+năng" alt="Minh họa cơ năng" style="width: 100%; border-radius: var(--border-radius); margin-top: 20px;">
-            </section>
-
-            <!-- PHẦN 2: ĐỘNG NĂNG -->
-            <section id="dong-nang">
-                <h2>I. Động năng là gì?</h2>
-                <p>Động năng là dạng năng lượng mà một vật có được do nó đang chuyển động. Mọi vật chuyển động đều có động năng.</p>
-                <p>Động năng của một vật phụ thuộc vào <strong>khối lượng</strong> và <strong>vận tốc</strong> của vật đó. Vật có khối lượng càng lớn và chuyển động càng nhanh thì động năng càng lớn.</p>
-                <div class="formula">W<sub>đ</sub> = ½mv²</div>
-                
-                <h3>Ví dụ minh họa</h3>
-                <p>Click vào hình ảnh để xem giải thích.</p>
-                <div class="example-grid">
-                    <div class="example-card">
-                        <img src="https://placehold.co/400x300/4CAF50/FFFFFF?text=Máy+bay+đang+bay" alt="Máy bay đang bay">
-                        <div class="caption">Máy bay đang bay</div>
-                        <div class="explanation">Máy bay có khối lượng rất lớn và bay với vận tốc cao, do đó nó có động năng khổng lồ.</div>
-                    </div>
-                    <div class="example-card">
-                        <img src="https://placehold.co/400x300/FFC107/FFFFFF?text=Ô+tô+chuyển+động" alt="Ô tô chuyển động">
-                        <div class="caption">Ô tô chuyển động</div>
-                        <div class="explanation">Ô tô đang chạy trên đường có động năng. Nếu ô tô chạy nhanh hơn, động năng của nó sẽ tăng lên.</div>
-                    </div>
-                </div>
-
-                <div class="interactive-question">
-                    <p>Câu hỏi: Nếu một quả bóng bowling và một quả bóng tennis được ném đi với cùng một vận tốc, quả bóng nào có động năng lớn hơn?</p>
-                    <div class="interactive-options" id="q1-options">
-                        <button data-correct="true">A. Quả bóng bowling</button>
-                        <button>B. Quả bóng tennis</button>
-                        <button>C. Bằng nhau</button>
-                    </div>
-                    <div class="feedback" id="q1-feedback"></div>
-                </div>
-            </section>
-
-            <!-- PHẦN 3: THẾ NĂNG -->
-            <section id="the-nang">
-                <h2>II. Thế năng là gì?</h2>
-                <p>Thế năng, cụ thể là <strong>thế năng hấp dẫn</strong>, là năng lượng mà một vật có được do vị trí của nó so với một mốc (thường là mặt đất). Vật ở vị trí càng cao thì thế năng hấp dẫn càng lớn.</p>
-                <p>Thế năng hấp dẫn phụ thuộc vào <strong>khối lượng</strong> của vật và <strong>độ cao</strong> của vật so với mốc.</p>
-                <div class="formula">W<sub>t</sub> = mgh (hoặc W<sub>t</sub> = P.h)</div>
-                
-                <h3>Ví dụ minh họa</h3>
-                <p>Click vào hình ảnh để xem giải thích.</p>
-                <div class="example-grid">
-                    <div class="example-card">
-                        <img src="https://placehold.co/400x300/F44336/FFFFFF?text=Đập+thủy+điện" alt="Đập thủy điện">
-                        <div class="caption">Nước trong đập thủy điện</div>
-                        <div class="explanation">Nước được tích ở trên cao trong hồ chứa có thế năng rất lớn. Khi xả xuống, thế năng chuyển hóa thành động năng làm quay tuabin phát điện.</div>
-                    </div>
-                    <div class="example-card">
-                        <img src="https://placehold.co/400x300/9C27B0/FFFFFF?text=Quả+táo+trên+cây" alt="Quả táo trên cây">
-                        <div class="caption">Quả táo trên cây</div>
-                        <div class="explanation">Quả táo ở trên cành cây có thế năng so với mặt đất. Khi nó rơi xuống, thế năng giảm dần và chuyển hóa thành động năng.</div>
-                    </div>
-                </div>
-
-                <div class="interactive-question">
-                    <p>Câu hỏi: Một con chim đang bay và một con chim khác có cùng khối lượng đang đậu trên nóc nhà. Con chim nào có thế năng lớn hơn (so với mặt đất)?</p>
-                    <div class="interactive-options" id="q2-options">
-                        <button data-correct="true">A. Con chim đang bay (thường bay cao hơn nóc nhà)</button>
-                        <button>B. Con chim đậu trên nóc nhà</button>
-                        <button>C. Bằng nhau</button>
-                    </div>
-                    <div class="feedback" id="q2-feedback"></div>
-                </div>
-            </section>
-            
-            <!-- PHẦN 4: TRÒ CHƠI KÉO THẢ -->
-            <section id="tro-choi">
-                <h2>Trò chơi: Phân loại Năng lượng</h2>
-                <p>Hãy kéo các tình huống dưới đây vào ô Động năng hoặc Thế năng tương ứng.</p>
-                
-                <div id="draggable-items">
-                    <div class="draggable" id="item1" draggable="true" data-type="dong-nang">Một vận động viên đang chạy</div>
-                    <div class="draggable" id="item2" draggable="true" data-type="the-nang">Lò xo bị nén</div>
-                    <div class="draggable" id="item3" draggable="true" data-type="dong-nang">Cánh quạt đang quay</div>
-                    <div class="draggable" id="item4" draggable="true" data-type="the-nang">Quyển sách trên giá sách</div>
-                    <div class="draggable" id="item5" draggable="true" data-type="dong-nang">Dòng nước đang chảy</div>
-                    <div class="draggable" id="item6" draggable="true" data-type="the-nang">Thác nước</div>
-                </div>
-
-                <div id="game-container">
-                    <div class="drop-zone" data-type="dong-nang">
-                        <h3>ĐỘNG NĂNG</h3>
-                    </div>
-                    <div class="drop-zone" data-type="the-nang">
-                        <h3>THẾ NĂNG</h3>
-                    </div>
-                </div>
-            </section>
-
-            <!-- PHẦN 5: TRẮC NGHIỆM CUỐI BÀI -->
-            <section id="trac-nghiem">
-                <h2>Bài trắc nghiệm củng cố</h2>
-                <form id="quiz-form">
-                    <!-- Các câu hỏi sẽ được chèn vào đây bởi JavaScript -->
-                </form>
-                <button id="submit-quiz">Nộp bài</button>
-                <div id="quiz-results"></div>
-            </section>
-        </main>
+  <section>
+    <h2>Khái niệm</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Động năng</h3>
+        <p>Là năng lượng mà vật có được do <b>chuyển động</b> của nó.</p>
+        <p>Công thức: <b>W<sub>đ</sub> = 1/2 m v²</b></p>
+        <img src="https://i.ibb.co/6XHQGrv/moving-ball.png" alt="Ví dụ động năng">
+      </div>
+      <div class="card">
+        <h3>Thế năng</h3>
+        <p>Là năng lượng mà vật có được do <b>vị trí</b> của nó trong một trường lực (như trọng trường).</p>
+        <p>Công thức: <b>W<sub>t</sub> = m g h</b></p>
+        <img src="https://i.ibb.co/1XNyM3S/falling-rock.png" alt="Ví dụ thế năng">
+      </div>
     </div>
+  </section>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // --- LOGIC CHUYỂN TAB ---
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('main section');
+  <section>
+    <h2>Mini Game: Trắc nghiệm tính điểm</h2>
+    <div class="quiz-container">
+      <div class="quiz-question" id="question">Câu 1: Công thức tính động năng là gì?</div>
+      <div class="quiz-options" id="options"></div>
+      <div id="result"></div>
+      <div style="margin-top:10px;">
+        <button onclick="nextQuestion()">Câu tiếp theo</button>
+      </div>
+    </div>
+  </section>
 
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('data-target');
-                
-                // Cập nhật trạng thái active cho link
-                navLinks.forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
+  <script>
+    const quizData = [
+      {
+        question: "Công thức tính động năng là gì?",
+        options: ["Wđ = 1/2 m v²", "Wđ = m g h", "Wđ = F.s"],
+        correct: 0
+      },
+      {
+        question: "Thế năng hấp dẫn phụ thuộc vào yếu tố nào?",
+        options: ["Khối lượng và độ cao", "Vận tốc", "Thời gian"],
+        correct: 0
+      },
+      {
+        question: "Một vật đang nằm yên có thế năng không?",
+        options: ["Có, nếu ở trên cao", "Không bao giờ", "Chỉ khi chuyển động"],
+        correct: 0
+      }
+    ];
 
-                // Hiển thị section tương ứng
-                sections.forEach(section => {
-                    section.classList.remove('active');
-                    if (section.id === targetId) {
-                        section.classList.add('active');
-                    }
-                });
-            });
-        });
+    let currentQuestion = 0;
+    let score = 0;
 
-        // --- LOGIC HIỂN THỊ GIẢI THÍCH HÌNH ẢNH ---
-        const exampleCards = document.querySelectorAll('.example-card');
-        exampleCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const explanation = card.querySelector('.explanation');
-                // Toggle display
-                if (explanation.style.display === 'block') {
-                    explanation.style.display = 'none';
-                } else {
-                    explanation.style.display = 'block';
-                }
-            });
-        });
+    function loadQuestion() {
+      document.getElementById("question").innerText = quizData[currentQuestion].question;
+      const optionsContainer = document.getElementById("options");
+      optionsContainer.innerHTML = "";
+      quizData[currentQuestion].options.forEach((option, index) => {
+        const btn = document.createElement("button");
+        btn.innerText = option;
+        btn.onclick = () => checkAnswer(index);
+        optionsContainer.appendChild(btn);
+      });
+      document.getElementById("result").innerText = "";
+    }
 
-        // --- LOGIC CÂU HỎI TƯƠNG TÁC TRONG BÀI ---
-        function handleInteractiveQuestion(optionsId, feedbackId) {
-            const optionsContainer = document.getElementById(optionsId);
-            const feedbackEl = document.getElementById(feedbackId);
-            
-            optionsContainer.addEventListener('click', (e) => {
-                if (e.target.tagName === 'BUTTON') {
-                    const isCorrect = e.target.dataset.correct === 'true';
-                    
-                    feedbackEl.style.display = 'block';
-                    if (isCorrect) {
-                        feedbackEl.textContent = 'Chính xác! Bạn đã hiểu đúng.';
-                        feedbackEl.style.backgroundColor = 'var(--correct-color)';
-                        feedbackEl.style.color = 'white';
-                    } else {
-                        feedbackEl.textContent = 'Chưa đúng. Hãy suy nghĩ lại nhé!';
-                        feedbackEl.style.backgroundColor = 'var(--incorrect-color)';
-                        feedbackEl.style.color = 'white';
-                    }
-                    
-                    // Vô hiệu hóa các nút sau khi trả lời
-                    optionsContainer.querySelectorAll('button').forEach(btn => {
-                        btn.disabled = true;
-                    });
-                }
-            });
-        }
-        handleInteractiveQuestion('q1-options', 'q1-feedback');
-        handleInteractiveQuestion('q2-options', 'q2-feedback');
+    function checkAnswer(selected) {
+      if (selected === quizData[currentQuestion].correct) {
+        score++;
+        document.getElementById("result").innerText = "✅ Chính xác! Điểm: " + score;
+      } else {
+        document.getElementById("result").innerText = "❌ Sai rồi! Điểm: " + score;
+      }
+    }
 
-        // --- LOGIC TRÒ CHƠI KÉO THẢ ---
-        const draggables = document.querySelectorAll('.draggable');
-        const dropZones = document.querySelectorAll('.drop-zone');
+    function nextQuestion() {
+      currentQuestion++;
+      if (currentQuestion < quizData.length) {
+        loadQuestion();
+      } else {
+        document.getElementById("question").innerText = "Hoàn thành mini game!";
+        document.getElementById("options").innerHTML = "";
+        document.getElementById("result").innerText = "Tổng điểm của bạn: " + score + "/" + quizData.length;
+      }
+    }
 
-        draggables.forEach(draggable => {
-            draggable.addEventListener('dragstart', (e) => {
-                e.dataTransfer.setData('text/plain', e.target.id);
-                setTimeout(() => {
-                    e.target.style.display = 'none';
-                }, 0);
-            });
-            
-            draggable.addEventListener('dragend', (e) => {
-                setTimeout(() => {
-                    e.target.style.display = 'block';
-                }, 0);
-            });
-        });
-
-        dropZones.forEach(zone => {
-            zone.addEventListener('dragover', e => {
-                e.preventDefault();
-                zone.classList.add('drag-over');
-            });
-
-            zone.addEventListener('dragleave', () => {
-                zone.classList.remove('drag-over');
-            });
-
-            zone.addEventListener('drop', e => {
-                e.preventDefault();
-                zone.classList.remove('drag-over');
-                const id = e.dataTransfer.getData('text/plain');
-                const draggable = document.getElementById(id);
-                
-                // Kiểm tra xem loại năng lượng có khớp không
-                if (draggable.dataset.type === zone.dataset.type) {
-                    zone.appendChild(draggable);
-                    draggable.classList.add('dropped');
-                    draggable.setAttribute('draggable', 'false');
-                }
-            });
-        });
-        
-        // --- LOGIC TRẮC NGHIỆM CUỐI BÀI ---
-        const quizData = [
-            {
-                question: "Vật nào sau đây không có động năng?",
-                options: ["Viên đạn đang bay", "Lò xo bị nén", "Người đang đi bộ", "Trái Đất quay quanh Mặt Trời"],
-                answer: 1
-            },
-            {
-                question: "Khi nào một vật có thế năng hấp dẫn?",
-                options: ["Khi vật chuyển động", "Khi vật có khối lượng", "Khi vật ở một độ cao so với mốc", "Khi vật bị biến dạng"],
-                answer: 2
-            },
-            {
-                question: "Nếu vận tốc của một vật tăng lên gấp đôi (khối lượng không đổi), động năng của nó sẽ:",
-                options: ["Tăng gấp 2 lần", "Tăng gấp 4 lần", "Giảm đi 2 lần", "Không đổi"],
-                answer: 1
-            },
-            {
-                question: "Một máy bay có khối lượng 10 tấn đang bay ở độ cao 1 km. Nếu nó hạ độ cao xuống 500m, thế năng của nó sẽ:",
-                options: ["Tăng lên", "Không đổi", "Giảm đi", "Bằng 0"],
-                answer: 2
-            },
-            {
-                question: "Trong các trường hợp sau, trường hợp nào vật vừa có động năng vừa có thế năng (so với mặt đất)?",
-                options: ["Quả bóng nằm yên trên mặt đất", "Vận động viên nhảy dù đang rơi", "Ô tô đỗ trên đỉnh dốc", "Quả lắc đồng hồ ở vị trí biên"],
-                answer: 1
-            }
-        ];
-
-        const quizForm = document.getElementById('quiz-form');
-        const submitQuizBtn = document.getElementById('submit-quiz');
-        const quizResultsEl = document.getElementById('quiz-results');
-
-        function buildQuiz() {
-            let output = '';
-            quizData.forEach((currentQuestion, questionNumber) => {
-                let optionsOutput = '';
-                currentQuestion.options.forEach((option, index) => {
-                    optionsOutput += `
-                        <div class="quiz-option">
-                            <label>
-                                <input type="radio" name="question${questionNumber}" value="${index}">
-                                ${option}
-                            </label>
-                        </div>
-                    `;
-                });
-                output += `
-                    <div class="quiz-question">
-                        <p>${questionNumber + 1}. ${currentQuestion.question}</p>
-                        ${optionsOutput}
-                    </div>
-                `;
-            });
-            quizForm.innerHTML = output;
-        }
-
-        function showResults() {
-            const answerContainers = quizForm.querySelectorAll('.quiz-question');
-            let score = 0;
-
-            quizData.forEach((currentQuestion, questionNumber) => {
-                const answerContainer = answerContainers[questionNumber];
-                const selector = `input[name=question${questionNumber}]:checked`;
-                const userAnswerNode = (answerContainer.querySelector(selector) || {});
-                const userAnswer = parseInt(userAnswerNode.value);
-                
-                if (userAnswer === currentQuestion.answer) {
-                    score++;
-                }
-            });
-
-            quizResultsEl.innerHTML = `Bạn đã trả lời đúng ${score} trên ${quizData.length} câu!`;
-        }
-
-        buildQuiz();
-        submitQuizBtn.addEventListener('click', showResults);
-    });
-    </script>
+    // Load câu hỏi đầu tiên
+    loadQuestion();
+  </script>
 </body>
 </html>
