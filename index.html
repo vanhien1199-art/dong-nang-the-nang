@@ -1,222 +1,1009 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bài học: Động năng – Thế năng</title>
-  <style>
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Động năng - Thế năng | Vật lí 8</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background: #f4faff;
-      color: #333;
-      padding: 10px;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
 
-    header {
-      background: #0077cc;
-      color: #fff;
-      padding: 15px;
-      text-align: center;
-      border-radius: 10px;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    header h1 {
-      font-size: 1.6rem;
-    }
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-    section {
-      margin: 15px 0;
-      padding: 15px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
-    h2 {
-      color: #0077cc;
-      margin-bottom: 10px;
-      font-size: 1.2rem;
-    }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
 
-    p {
-      margin-bottom: 10px;
-      font-size: 1rem;
-    }
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
 
-    img {
-      max-width: 100%;
-      border-radius: 8px;
-      margin: 10px 0;
-    }
+        /* Navigation */
+        nav {
+            background: #4a5568;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-    .cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            overflow-x: auto;
+        }
 
-    .card {
-      background: #e9f4ff;
-      border-radius: 10px;
-      padding: 10px;
-      text-align: center;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
+        .nav-menu li {
+            flex-shrink: 0;
+        }
 
-    .quiz-container {
-      margin-top: 15px;
-    }
+        .nav-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            transition: background 0.3s;
+            white-space: nowrap;
+        }
 
-    .quiz-question {
-      margin-bottom: 10px;
-    }
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background: #2d3748;
+        }
 
-    .quiz-options button {
-      display: block;
-      width: 100%;
-      padding: 8px;
-      margin: 5px 0;
-      border: none;
-      border-radius: 6px;
-      background: #0077cc;
-      color: #fff;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+        /* Main Content */
+        main {
+            padding: 2rem 0;
+        }
 
-    .quiz-options button:hover {
-      background: #005fa3;
-    }
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+            background: white;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
 
-    #result {
-      margin-top: 10px;
-      font-weight: bold;
-    }
+        .section.active {
+            display: block;
+        }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.2rem;
-      }
-      h2 {
-        font-size: 1rem;
-      }
-      p, button {
-        font-size: 0.9rem;
-      }
-      .cards {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section h2 {
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        .formula {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-size: 1.2rem;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .example-card {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .example-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+
+        .example-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .example-card h4 {
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+        }
+
+        .example-explanation {
+            display: none;
+            background: #667eea;
+            color: white;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 5px;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; height: 0; }
+            to { opacity: 1; height: auto; }
+        }
+
+        /* Interactive Questions */
+        .question {
+            background: #fff5f5;
+            border: 2px solid #fed7d7;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .question h4 {
+            color: #c53030;
+            margin-bottom: 1rem;
+        }
+
+        .options {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .option {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .option:hover {
+            border-color: #667eea;
+            background: #f7fafc;
+        }
+
+        .option.correct {
+            background: #c6f6d5;
+            border-color: #38a169;
+        }
+
+        .option.incorrect {
+            background: #fed7d7;
+            border-color: #e53e3e;
+        }
+
+        .feedback {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .feedback.correct {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .feedback.incorrect {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+
+        /* Drag and Drop */
+        .drag-drop-area {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .drop-zone {
+            min-height: 200px;
+            border: 3px dashed #cbd5e0;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .drop-zone.drag-over {
+            border-color: #667eea;
+            background: #f7fafc;
+        }
+
+        .drop-zone h4 {
+            color: #4a5568;
+            margin-bottom: 1rem;
+        }
+
+        .draggable-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .draggable {
+            background: #667eea;
+            color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            cursor: move;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .draggable:hover {
+            transform: scale(1.05);
+        }
+
+        .draggable.dragging {
+            opacity: 0.5;
+        }
+
+        /* Quiz */
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quiz-question {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .quiz-question.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .quiz-progress {
+            background: #e2e8f0;
+            height: 10px;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .quiz-progress-bar {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .quiz-controls {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+            margin: 0 0.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .quiz-result {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .score-excellent { background: linear-gradient(135deg, #48bb78, #38a169); }
+        .score-good { background: linear-gradient(135deg, #ed8936, #dd6b20); }
+        .score-needs-improvement { background: linear-gradient(135deg, #e53e3e, #c53030); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .nav-menu {
+                justify-content: flex-start;
+            }
+
+            .section {
+                padding: 1rem;
+            }
+
+            .drag-drop-area {
+                grid-template-columns: 1fr;
+            }
+
+            .example-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Bài học: Động năng – Thế năng (Vật lý 8)</h1>
-  </header>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>🔬 Động năng - Thế năng</h1>
+                    <p class="subtitle">Vật lí 8 - Năng lượng cơ học</p>
+                </div>
+            </div>
+        </div>
+    </header>
 
-  <section>
-    <h2>Mục tiêu bài học</h2>
-    <p>✔ Hiểu khái niệm động năng và thế năng.</p>
-    <p>✔ Biết công thức tính động năng.</p>
-    <p>✔ Phân biệt được động năng và thế năng qua ví dụ thực tế.</p>
-  </section>
+    <nav>
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="#" onclick="showSection('intro')" class="active">📚 Giới thiệu</a></li>
+                <li><a href="#" onclick="showSection('kinetic')">⚡ Động năng</a></li>
+                <li><a href="#" onclick="showSection('potential')">🏔️ Thế năng</a></li>
+                <li><a href="#" onclick="showSection('practice')">🎯 Trắc nghiệm</a></li>
+                <li><a href="#" onclick="showSection('game')">🎮 Trò chơi</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <section>
-    <h2>Khái niệm</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Động năng</h3>
-        <p>Là năng lượng mà vật có được do <b>chuyển động</b> của nó.</p>
-        <p>Công thức: <b>W<sub>đ</sub> = 1/2 m v²</b></p>
-        <img src="https://i.ibb.co/6XHQGrv/moving-ball.png" alt="Ví dụ động năng">
-      </div>
-      <div class="card">
-        <h3>Thế năng</h3>
-        <p>Là năng lượng mà vật có được do <b>vị trí</b> của nó trong một trường lực (như trọng trường).</p>
-        <p>Công thức: <b>W<sub>t</sub> = m g h</b></p>
-        <img src="https://i.ibb.co/1XNyM3S/falling-rock.png" alt="Ví dụ thế năng">
-      </div>
-    </div>
-  </section>
+    <main>
+        <div class="container">
+            <!-- Giới thiệu -->
+            <section id="intro" class="section active">
+                <h2>📚 Giới thiệu về Năng lượng cơ học</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+                    Năng lượng cơ học là một dạng năng lượng quan trọng trong vật lí, bao gồm <strong>động năng</strong> và <strong>thế năng</strong>. 
+                    Hiểu rõ về chúng sẽ giúp bạn giải thích được nhiều hiện tượng thú vị trong cuộc sống!
+                </p>
 
-  <section>
-    <h2>Mini Game: Trắc nghiệm tính điểm</h2>
-    <div class="quiz-container">
-      <div class="quiz-question" id="question">Câu 1: Công thức tính động năng là gì?</div>
-      <div class="quiz-options" id="options"></div>
-      <div id="result"></div>
-      <div style="margin-top:10px;">
-        <button onclick="nextQuestion()">Câu tiếp theo</button>
-      </div>
-    </div>
-  </section>
+                <div class="example-grid">
+                    <div class="example-card" onclick="toggleExplanation(this)">
+                        <div class="example-icon">🚗</div>
+                        <h4>Ô tô đang chạy</h4>
+                        <p>Có năng lượng gì?</p>
+                        <div class="example-explanation">
+                            <strong>Động năng!</strong> Vì ô tô đang chuyển động với vận tốc v.
+                        </div>
+                    </div>
 
-  <script>
-    const quizData = [
-      {
-        question: "Công thức tính động năng là gì?",
-        options: ["Wđ = 1/2 m v²", "Wđ = m g h", "Wđ = F.s"],
-        correct: 0
-      },
-      {
-        question: "Thế năng hấp dẫn phụ thuộc vào yếu tố nào?",
-        options: ["Khối lượng và độ cao", "Vận tốc", "Thời gian"],
-        correct: 0
-      },
-      {
-        question: "Một vật đang nằm yên có thế năng không?",
-        options: ["Có, nếu ở trên cao", "Không bao giờ", "Chỉ khi chuyển động"],
-        correct: 0
-      }
-    ];
+                    <div class="example-card" onclick="toggleExplanation(this)">
+                        <div class="example-icon">🏔️</div>
+                        <h4>Tảng đá trên núi</h4>
+                        <p>Có năng lượng gì?</p>
+                        <div class="example-explanation">
+                            <strong>Thế năng!</strong> Vì tảng đá ở độ cao h so với mặt đất.
+                        </div>
+                    </div>
 
-    let currentQuestion = 0;
-    let score = 0;
+                    <div class="example-card" onclick="toggleExplanation(this)">
+                        <div class="example-icon">🎢</div>
+                        <h4>Tàu lượn siêu tốc</h4>
+                        <p>Có năng lượng gì?</p>
+                        <div class="example-explanation">
+                            <strong>Cả hai!</strong> Vừa có động năng (do chuyển động) vừa có thế năng (do độ cao).
+                        </div>
+                    </div>
+                </div>
 
-    function loadQuestion() {
-      document.getElementById("question").innerText = quizData[currentQuestion].question;
-      const optionsContainer = document.getElementById("options");
-      optionsContainer.innerHTML = "";
-      quizData[currentQuestion].options.forEach((option, index) => {
-        const btn = document.createElement("button");
-        btn.innerText = option;
-        btn.onclick = () => checkAnswer(index);
-        optionsContainer.appendChild(btn);
-      });
-      document.getElementById("result").innerText = "";
-    }
+                <div style="background: #e6fffa; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #38b2ac;">
+                    <h4 style="color: #234e52; margin-bottom: 1rem;">💡 Định luật bảo toàn năng lượng cơ học</h4>
+                    <p>Trong điều kiện lí tưởng (không có ma sát), tổng động năng và thế năng của vật luôn không đổi:</p>
+                    <div class="formula" style="margin-top: 1rem;">
+                        W<sub>cơ</sub> = W<sub>đ</sub> + W<sub>t</sub> = const
+                    </div>
+                </div>
+            </section>
 
-    function checkAnswer(selected) {
-      if (selected === quizData[currentQuestion].correct) {
-        score++;
-        document.getElementById("result").innerText = "✅ Chính xác! Điểm: " + score;
-      } else {
-        document.getElementById("result").innerText = "❌ Sai rồi! Điểm: " + score;
-      }
-    }
+            <!-- Động năng -->
+            <section id="kinetic" class="section">
+                <h2>⚡ Động năng</h2>
+                
+                <div style="background: #fff5f5; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+                    <h3 style="color: #c53030; margin-bottom: 1rem;">📖 Định nghĩa</h3>
+                    <p style="font-size: 1.1rem;">
+                        <strong>Động năng</strong> là năng lượng mà vật có được do chuyển động. 
+                        Động năng phụ thuộc vào khối lượng và vận tốc của vật.
+                    </p>
+                </div>
 
-    function nextQuestion() {
-      currentQuestion++;
-      if (currentQuestion < quizData.length) {
-        loadQuestion();
-      } else {
-        document.getElementById("question").innerText = "Hoàn thành mini game!";
-        document.getElementById("options").innerHTML = "";
-        document.getElementById("result").innerText = "Tổng điểm của bạn: " + score + "/" + quizData.length;
-      }
-    }
+                <div class="formula">
+                    <h4 style="margin-bottom: 1rem;">🧮 Công thức tính động năng:</h4>
+                    <div style="font-size: 1.5rem; font-weight: bold;">
+                        W<sub>đ</sub> = ½mv²
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;">
+                        Trong đó: m (kg) - khối lượng, v (m/s) - vận tốc
+                    </p>
+                </div>
 
-    // Load câu hỏi đầu tiên
-    loadQuestion();
-  </script>
-</body>
+                <h3 style="margin: 2rem 0 1rem 0; color: #4a5568;">🌟 Ví dụ minh họa</h3>
+                <div class="example-grid">
+                    <div class="example-card" onclick="toggleExplanation(this)">
+                        <div class="example-icon">✈️</div>
+                        <h4>Máy bay Boeing 747</h4>
+                        <p>m = 400 tấn, v = 250 m/s</p>
+                        <div class="example-explanation">
+                            W<sub>đ</sub> = ½ × 400.000 × 250² = 12,5 tỷ J<br>
+                            <strong>Năng lượng khổng lồ!</strong>
+                        </div>
+                    </div>
+
+                    <div class="example-card" onclick="toggleExplanation(this)">
+                        <div class="example-icon">🚗</div>
+                        <h4>Ô tô con</h4>
+                        <p>m = 1,5 tấn, v = 60 km/h</p>
+                        <div class="example-explanation">
+                            v = 60 km/h = 16,7 m/s<br>
+                            W<sub>đ</sub> = ½ × 1500 × 16,7² = 209.000 J
+                        </div>
+                    </div>
+
+                    <div class="example-card" onclick="toggleExplanation(this)">
+                        <div class="example-icon">⚽</div>
+                        <h4>Quả bóng đá</h4>
+                        <p>m = 0,4 kg, v = 30 m/s</p>
+                        <div class="example-explanation">
+                            W<sub>đ</sub> = ½ × 0,4 × 30² = 180 J<br>
+                            <strong>Nhỏ nhưng có võ!</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <h4>🤔 Câu hỏi tương tác: Động năng phụ thuộc vào yếu tố nào?</h4>
+                    <div class="options">
+                        <div class="option" onclick="checkAnswer(this, false)">A. Chỉ phụ thuộc vào khối lượng</div>
+                        <div class="option" onclick="checkAnswer(this, false)">B. Chỉ phụ thuộc vào vận tốc</div>
+                        <div class="option" onclick="checkAnswer(this, true)">C. Phụ thuộc vào cả khối lượng và vận tốc</div>
+                        <div class="option" onclick="checkAnswer(this, false)">D. Phụ thuộc vào độ cao</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question">
+                    <h4>🎯 Đúng hay Sai: "Khi vận tốc tăng gấp đôi, động năng tăng gấp đôi"</h4>
+                    <div class="options">
+                        <div class="option" onclick="checkAnswer(this, false)">Đúng</div>
+                        <div class="option" onclick="checkAnswer(this, true)">Sai</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+            </section>
+
+            <!-- Thế năng -->
+            <section id="potential" class="section">
+                <h2>🏔️ Thế năng hấp dẫn</h2>
+                
+                <div style="background: #f0fff4; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+                    <h3 style="color: #22543d; margin-bottom: 1rem;">📖 Định nghĩa</h3>
+                    <p style="font-size: 1.1rem;">
+                        <strong>Thế năng hấp dẫn</strong> là năng lượng mà vật có được do tương tác với Trái Đất. 
+                        Thế năng phụ thuộc vào khối lượng, gia tốc trọng trường và độ cao của vật.
+                    </p>
+                </div>
+
+                <div class="formula">
+                    <h4 style="margin-bottom: 1rem;">🧮 Công thức tính thế năng:</h4>
+                    <div style="font-size: 1.5rem; font-weight: bold;">
+                        W<sub>t</sub> = mgh
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;">
+                        Trong đó: m (kg) - khối lượng, g = 10 m/s² - gia tốc trọng trường, h (m) - độ cao
+                    </p>
+                </div>
+
+                <h3 style="margin: 2rem 0 1rem 0; color: #4a5568;">🌟 Ví dụ minh họa</h3>
+                <div class="example-grid">
+                    <div class="example-card" onclick="toggleExplanation(this)">
+                        <div class="example-icon">🏗️</div>
+                        <h4>Đập thủy điện Hòa Bình</h4>
+                        <p>Độ cao: 128m</p>
+                        <div class="example-explanation">
+                            Nước ở độ cao lớn có thế năng khổng lồ.<br>
+                            Khi rơi xuống → chuyển thành động năng → quay tuabin → phát điện!
+                        </div>
+                    </div>
+
+                    <div class="example-card" onclick="toggleExplanation(this)">
+                        <div class="example-icon">🍎</div>
+                        <h4>Quả táo trên cây</h4>
+                        <p>m = 0,2 kg, h = 3m</p>
+                        <div class="example-explanation">
+                            W<sub>t</sub> = 0,2 × 10 × 3 = 6 J<br>
+                            <strong>Khi rơi sẽ chuyển thành động năng!</strong>
+                        </div>
+                    </div>
+
+                    <div class="example-card" onclick="toggleExplanation(this)">
+                        <div class="example-icon">🎿</div>
+                        <h4>Người trượt tuyết</h4>
+                        <p>m = 70 kg, h = 100m</p>
+                        <div class="example-explanation">
+                            W<sub>t</sub> = 70 × 10 × 100 = 70.000 J<br>
+                            <strong>Thế năng này sẽ chuyển thành tốc độ cực nhanh!</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <h4>🤔 Câu hỏi tương tác: Thế năng của vật sẽ như thế nào khi độ cao tăng gấp 3?</h4>
+                    <div class="options">
+                        <div class="option" onclick="checkAnswer(this, false)">A. Không đổi</div>
+                        <div class="option" onclick="checkAnswer(this, false)">B. Tăng gấp 2</div>
+                        <div class="option" onclick="checkAnswer(this, true)">C. Tăng gấp 3</div>
+                        <div class="option" onclick="checkAnswer(this, false)">D. Tăng gấp 9</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question">
+                    <h4>🎯 Đúng hay Sai: "Vật ở mặt đất có thế năng bằng 0"</h4>
+                    <div class="options">
+                        <div class="option" onclick="checkAnswer(this, true)">Đúng</div>
+                        <div class="option" onclick="checkAnswer(this, false)">Sai</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+            </section>
+
+            <!-- Trắc nghiệm -->
+            <section id="practice" class="section">
+                <h2>🎯 Trắc nghiệm</h2>
+                <div class="quiz-container">
+                    <div class="quiz-progress">
+                        <div class="quiz-progress-bar" id="progressBar"></div>
+                    </div>
+                    
+                    <div class="quiz-question active" data-question="0">
+                        <h3>Câu 1/5: Động năng của vật phụ thuộc vào:</h3>
+                        <div class="options">
+                            <div class="option" data-answer="false">A. Khối lượng và độ cao</div>
+                            <div class="option" data-answer="true">B. Khối lượng và vận tốc</div>
+                            <div class="option" data-answer="false">C. Vận tốc và độ cao</div>
+                            <div class="option" data-answer="false">D. Chỉ có khối lượng</div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question" data-question="1">
+                        <h3>Câu 2/5: Một ô tô khối lượng 1000kg chạy với vận tốc 20m/s. Động năng của ô tô là:</h3>
+                        <div class="options">
+                            <div class="option" data-answer="false">A. 100.000 J</div>
+                            <div class="option" data-answer="true">B. 200.000 J</div>
+                            <div class="option" data-answer="false">C. 400.000 J</div>
+                            <div class="option" data-answer="false">D. 20.000 J</div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question" data-question="2">
+                        <h3>Câu 3/5: Thế năng hấp dẫn của vật được tính bằng công thức:</h3>
+                        <div class="options">
+                            <div class="option" data-answer="false">A. W = ½mv²</div>
+                            <div class="option" data-answer="true">B. W = mgh</div>
+                            <div class="option" data-answer="false">C. W = mgh²</div>
+                            <div class="option" data-answer="false">D. W = mg</div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question" data-question="3">
+                        <h3>Câu 4/5: Khi vận tốc của vật tăng gấp đôi, động năng sẽ:</h3>
+                        <div class="options">
+                            <div class="option" data-answer="false">A. Tăng gấp đôi</div>
+                            <div class="option" data-answer="false">B. Giảm một nửa</div>
+                            <div class="option" data-answer="true">C. Tăng gấp 4 lần</div>
+                            <div class="option" data-answer="false">D. Không đổi</div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question" data-question="4">
+                        <h3>Câu 5/5: Một vật có khối lượng 2kg ở độ cao 5m. Thế năng của vật là:</h3>
+                        <div class="options">
+                            <div class="option" data-answer="false">A. 50 J</div>
+                            <div class="option" data-answer="false">B. 10 J</div>
+                            <div class="option" data-answer="true">C. 100 J</div>
+                            <div class="option" data-answer="false">D. 200 J</div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-controls">
+                        <button class="btn" id="prevBtn" onclick="changeQuestion(-1)" disabled>⬅️ Câu trước</button>
+                        <button class="btn" id="nextBtn" onclick="changeQuestion(1)">Câu tiếp ➡️</button>
+                        <button class="btn" id="submitBtn" onclick="submitQuiz()" style="display: none;">🏁 Nộp bài</button>
+                    </div>
+
+                    <div class="quiz-result" id="quizResult">
+                        <div class="score-circle" id="scoreCircle">
+                            <span id="scoreText">0/5</span>
+                        </div>
+                        <h3 id="resultTitle">Kết quả của bạn</h3>
+                        <p id="resultMessage">Chúc mừng bạn đã hoàn thành bài trắc nghiệm!</p>
+                        <button class="btn" onclick="resetQuiz()">🔄 Làm lại</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trò chơi -->
+            <section id="game" class="section">
+                <h2>🎮 Trò chơi: Phân loại Động năng - Thế năng</h2>
+                <p style="margin-bottom: 2rem; font-size: 1.1rem;">
+                    Kéo thả các tình huống vào đúng loại năng lượng tương ứng!
+                </p>
+
+                <div class="drag-drop-area">
+                    <div class="drop-zone" id="kineticZone" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <h4>⚡ ĐỘNG NĂNG</h4>
+                        <p>Kéo các tình huống có động năng vào đây</p>
+                    </div>
+                    <div class="drop-zone" id="potentialZone" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <h4>🏔️ THẾ NĂNG</h4>
+                        <p>Kéo các tình huống có thế năng vào đây</p>
+                    </div>
+                </div>
+
+                <div class="draggable-items" id="draggableItems">
+                    <div class="draggable" draggable="true" ondragstart="drag(event)" data-type="kinetic">
+                        🚗 Ô tô đang chạy trên đường
+                    </div>
+                    <div class="draggable" draggable="true" ondragstart="drag(event)" data-type="potential">
+                        🏔️ Tảng đá trên đỉnh núi
+                    </div>
+                    <div class="draggable" draggable="true" ondragstart="drag(event)" data-type="kinetic">
+                        ⚽ Quả bóng đang bay
+                    </div>
+                    <div class="draggable" draggable="true" ondragstart="drag(event)" data-type="potential">
+                        💧 Nước trong hồ chứa đập
+                    </div>
+                    <div class="draggable" draggable="true" ondragstart="drag(event)" data-type="kinetic">
+                        🏃 Người đang chạy
+                    </div>
+                    <div class="draggable" draggable="true" ondragstart="drag(event)" data-type="potential">
+                        📚 Sách trên kệ cao
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn" onclick="resetGame()">🔄 Chơi lại</button>
+                    <button class="btn" onclick="checkGame()">✅ Kiểm tra</button>
+                </div>
+
+                <div id="gameResult" style="display: none; margin-top: 2rem; padding: 1rem; border-radius: 10px; text-align: center;">
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Navigation
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        // Toggle explanations
+        function toggleExplanation(card) {
+            const explanation = card.querySelector('.example-explanation');
+            if (explanation.style.display === 'block') {
+                explanation.style.display = 'none';
+            } else {
+                explanation.style.display = 'block';
+            }
+        }
+
+        // Check answers for interactive questions
+        function checkAnswer(option, isCorrect) {
+            const question = option.closest('.question');
+            const options = question.querySelectorAll('.option');
+            const feedback = question.querySelector('.feedback');
+            
+            // Reset all options
+            options.forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+            });
+            
+            // Mark selected option
+            if (isCorrect) {
+                option.classList.add('correct');
+                feedback.textContent = '✅ Chính xác! Bạn đã trả lời đúng.';
+                feedback.className = 'feedback correct show';
+            } else {
+                option.classList.add('incorrect');
+                feedback.textContent = '❌ Chưa đúng. Hãy thử lại nhé!';
+                feedback.className = 'feedback incorrect show';
+            }
+        }
+
+        // Quiz functionality
+        let currentQuestion = 0;
+        let userAnswers = [];
+        let quizCompleted = false;
+
+        function changeQuestion(direction) {
+            const questions = document.querySelectorAll('.quiz-question');
+            
+            // Hide current question
+            questions[currentQuestion].classList.remove('active');
+            
+            // Update question index
+            currentQuestion += direction;
+            
+            // Show new question
+            questions[currentQuestion].classList.add('active');
+            
+            // Update buttons
+            document.getElementById('prevBtn').disabled = currentQuestion === 0;
+            document.getElementById('nextBtn').style.display = currentQuestion === questions.length - 1 ? 'none' : 'inline-block';
+            document.getElementById('submitBtn').style.display = currentQuestion === questions.length - 1 ? 'inline-block' : 'none';
+            
+            // Update progress
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestion + 1) / 5) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        // Handle quiz option selection
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('option') && e.target.closest('.quiz-question')) {
+                const question = e.target.closest('.quiz-question');
+                const questionIndex = parseInt(question.dataset.question);
+                const options = question.querySelectorAll('.option');
+                
+                // Remove previous selection
+                options.forEach(opt => opt.classList.remove('selected'));
+                
+                // Mark new selection
+                e.target.classList.add('selected');
+                
+                // Store answer
+                userAnswers[questionIndex] = e.target.dataset.answer === 'true';
+            }
+        });
+
+        function submitQuiz() {
+            quizCompleted = true;
+            const score = userAnswers.filter(answer => answer === true).length;
+            
+            // Hide quiz questions
+            document.querySelectorAll('.quiz-question').forEach(q => q.style.display = 'none');
+            document.querySelector('.quiz-controls').style.display = 'none';
+            
+            // Show results
+            const resultDiv = document.getElementById('quizResult');
+            const scoreCircle = document.getElementById('scoreCircle');
+            const scoreText = document.getElementById('scoreText');
+            const resultTitle = document.getElementById('resultTitle');
+            const resultMessage = document.getElementById('resultMessage');
+            
+            scoreText.textContent = `${score}/5`;
+            
+            if (score >= 4) {
+                scoreCircle.className = 'score-circle score-excellent';
+                resultTitle.textContent = '🎉 Xuất sắc!';
+                resultMessage.textContent = 'Bạn đã nắm vững kiến thức về động năng và thế năng!';
+            } else if (score >= 2) {
+                scoreCircle.className = 'score-circle score-good';
+                resultTitle.textContent = '👍 Khá tốt!';
+                resultMessage.textContent = 'Bạn đã hiểu cơ bản, hãy ôn lại một chút nhé!';
+            } else {
+                scoreCircle.className = 'score-circle score-needs-improvement';
+                resultTitle.textContent = '💪 Cần cố gắng thêm!';
+                resultMessage.textContent = 'Hãy đọc lại bài học và thử lại nhé!';
+            }
+            
+            resultDiv.style.display = 'block';
+        }
+
+        function resetQuiz() {
+            currentQuestion = 0;
+            userAnswers = [];
+            quizCompleted = false;
+            
+            // Reset UI
+            document.querySelectorAll('.quiz-question').forEach((q, index) => {
+                q.style.display = index === 0 ? 'block' : 'none';
+                q.classList.toggle('active', index === 0);
+                q.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            });
+            
+            document.querySelector('.quiz-controls').style.display = 'block';
+            document.getElementById('quizResult').style.display = 'none';
+            document.getElementById('prevBtn').disabled = true;
+            document.getElementById('nextBtn').style.display = 'inline-block';
+            document.getElementById('submitBtn').style.display = 'none';
+            
+            updateProgress();
+        }
+
+        // Drag and Drop Game
+        function allowDrop(ev) {
+            ev.preventDefault();
+            ev.target.closest('.drop-zone').classList.add('drag-over');
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id || ev.target.textContent);
+            ev.dataTransfer.setData("type", ev.target.dataset.type);
+            ev.target.classList.add('dragging');
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            const data = ev.dataTransfer.getData("text");
+            const type = ev.dataTransfer.getData("type");
+            const dropZone = ev.target.closest('.drop-zone');
+            
+            dropZone.classList.remove('drag-over');
+            
+            // Find the dragged element
+            const draggedElement = Array.from(document.querySelectorAll('.draggable')).find(el => 
+                (el.id && el.id === data) || el.textContent === data
+            );
+            
+            if (draggedElement) {
+                draggedElement.classList.remove('dragging');
+                dropZone.appendChild(draggedElement);
+            }
+        }
+
+        // Remove drag-over class when drag leaves
+        document.addEventListener('dragleave', function(e) {
+            if (e.target.classList.contains('drop-zone')) {
+                e.target.classList.remove('drag-over');
+            }
+        });
+
+        function resetGame() {
+            const items = document.querySelectorAll('.draggable');
+            const container = document.getElementById('draggableItems');
+            
+            items.forEach(item => {
+                container.appendChild(item);
+            });
+            
+            document.getElementById('gameResult').style.display = 'none';
+        }
+
+        function checkGame() {
+            const kineticZone = document.getElementById('kineticZone');
+            const potentialZone = document.getElementById('potentialZone');
+            const resultDiv = document.getElementById('gameResult');
+            
+            let correct = 0;
+            let total = 0;
+            
+            // Check kinetic energy items
+            kineticZone.querySelectorAll('.draggable').forEach(item => {
+                total++;
+                if (item.dataset.type === 'kinetic') {
+                    correct++;
+                }
+            });
+            
+            // Check potential energy items
+            potentialZone.querySelectorAll('.draggable').forEach(item => {
+                total++;
+                if (item.dataset.type === 'potential') {
+                    correct++;
+                }
+            });
+            
+            const percentage = Math.round((correct / 6) * 100);
+            
+            if (percentage === 100) {
+                resultDiv.innerHTML = '🎉 <strong>Hoàn hảo!</strong> Bạn đã phân loại đúng tất cả!';
+                resultDiv.style.background = '#c6f6d5';
+                resultDiv.style.color = '#22543d';
+            } else if (percentage >= 70) {
+                resultDiv.innerHTML = `👍 <strong>Khá tốt!</strong> Bạn đúng ${correct}/6 tình huống (${percentage}%)`;
+                resultDiv.style.background = '#fef5e7';
+                resultDiv.style.color = '#744210';
+            } else {
+                resultDiv.innerHTML = `💪 <strong>Cần cố gắng thêm!</strong> Bạn đúng ${correct}/6 tình huống (${percentage}%)`;
+                resultDiv.style.background = '#fed7d7';
+                resultDiv.style.color = '#742a2a';
+            }
+            
+            resultDiv.style.display = 'block';
+        }
+
+        // Initialize
+        updateProgress();
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98491847075a04d1',t:'MTc1ODc4ODM0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
